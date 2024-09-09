@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: bc47bd8d620aca24eb465b0c6da38046
+=======
+guid: 32f31f38ae46bfe4ca2aa1b3cc76d0a3
+>>>>>>> 6efde02a5028eb1f71358b19a23ecff0c79aff3c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +47,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> 6efde02a5028eb1f71358b19a23ecff0c79aff3c
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,6 +116,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites:
     - serializedVersion: 2
       name: "AI\uB85C\uBD07Shooting_0"
@@ -277,6 +286,9 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+    sprites: []
+>>>>>>> 6efde02a5028eb1f71358b19a23ecff0c79aff3c
     outline: []
     physicsShape: []
     bones: []
@@ -287,6 +299,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
     nameFileIdTable:
       "AI\uB85C\uBD07Shooting_0": 411518765
       "AI\uB85C\uBD07Shooting_1": -443960079
@@ -296,6 +309,9 @@ TextureImporter:
       "AI\uB85C\uBD07Shooting_5": -628379228
       "AI\uB85C\uBD07Shooting_6": 1032456352
       "AI\uB85C\uBD07Shooting_7": 933573879
+=======
+    nameFileIdTable: {}
+>>>>>>> 6efde02a5028eb1f71358b19a23ecff0c79aff3c
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
