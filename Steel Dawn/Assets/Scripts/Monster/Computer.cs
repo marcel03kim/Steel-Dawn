@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerMove : MonoBehaviour
+public class Computer : MonoBehaviour
 {
-    public int Hp = 1;       //몬스터 체력 변수 선언
+    public float Hp = 1;       //몬스터 체력 변수 선언
     private float speed = 0.75f; //움직이는 속도 변수 선언
-    public int power = 2;       //몬스터 공격력 변수 선언
+    public float power = 2;       //몬스터 공격력 변수 선언
 
     private float attackInterval = 3.0f; //공격속도 변수 선언
     private bool canAttack = true;  // 공격 가능한 상태인지 여부
@@ -29,13 +29,14 @@ public class ComputerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();  // Rigidbody2D 초기화
-        anim = GetComponent<Animator>();  // Animator 초기화
+        anim = GetComponent<Animator>();   // Animator 초기화
         target = GameObject.FindWithTag("Player").transform;  // Player 태그를 가진 오브젝트 찾기
+        spriteRenderer = GetComponent<SpriteRenderer>();  // SpriteRenderer 초기화
     }
 
     private void Update()
     {
-        if (Hp < 0)
+        if (Hp <= 0)
         {
             currentState = State.Die;
         }
@@ -114,16 +115,17 @@ public class ComputerMove : MonoBehaviour
     }
 
     // 죽음 처리 로직 작성
-    void Die() 
+    void Die()
     {
-        StartCoroutine(FadeOutCoroutine(2.5f));
         anim.SetTrigger("die");
+        StartCoroutine(FadeOutCoroutine(2.0f));  // 알파값 조정 코루틴 실행
     }
 
     private IEnumerator FadeOutCoroutine(float duration)
     {
+        yield return new WaitForSeconds(1.0f);
+
         float elapsedTime = 0f;
-        speed = 0f;
         Color color = spriteRenderer.color;  // 현재 스프라이트 색상 가져오기
         float startAlpha = color.a;  // 시작할 때의 알파 값
 
@@ -135,9 +137,11 @@ public class ComputerMove : MonoBehaviour
             yield return null;  // 다음 프레임까지 대기
         }
 
-        color.a = 0f;  // 마지막으로 알파 값을 0으로 설정
-        spriteRenderer.color = color;  // 최종적으로 완전히 투명하게 만듦
+        // 마지막으로 알파 값을 0으로 설정
+        color.a = 0f;
+        spriteRenderer.color = color;
+
+        // 최종적으로 오브젝트를 삭제
         Destroy(gameObject);
     }
-
 }
