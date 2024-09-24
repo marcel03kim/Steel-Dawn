@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    private float speed = 2.0f;
+    public int Hp;
+    private float speed = 1.5f;
     Vector2 movement = new Vector2();
     Rigidbody2D rb;
 
