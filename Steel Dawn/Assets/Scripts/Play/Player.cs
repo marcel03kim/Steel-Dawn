@@ -6,10 +6,14 @@ public class Player : MonoBehaviour
 {
     public float Hp;
     private float speed = 1.5f;
-    public float exp;
+    public int level = 0;
+    public float exp = 0;
     public float power;
     public float defense;
-    public Sprite[] expSprite; // 경험치에 따른 스프라이트 배열
+    private bool isLevelUp = false;
+
+    private LevelUpManager levelUpManager;
+    public GameObject[] expSprite; // 경험치에 따른 스프라이트 배열
     private SpriteRenderer spriteRenderer; // 스프라이트 렌더러
 
     Vector2 movement = new Vector2();
@@ -19,6 +23,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // 스프라이트 렌더러 초기화
+        levelUpManager = GetComponent<LevelUpManager>();
         UpdateExpSprites(); // 초기 스프라이트 설정
     }
 
@@ -26,6 +31,19 @@ public class Player : MonoBehaviour
     {
         // 경험치에 따라 스프라이트 업데이트
         UpdateExpSprites();
+        if(!isLevelUp && exp >= 190)
+        {
+            isLevelUp = true;
+            LevelUp();
+        }
+    }
+
+    void LevelUp()
+    {
+        level += 1;
+        exp = 0;
+        isLevelUp = false;
+        levelUpManager.GetComponent<LevelUpManager>().PlayerLevelUp();
     }
 
     private void FixedUpdate()
@@ -42,71 +60,19 @@ public class Player : MonoBehaviour
     private void UpdateExpSprites()
     {
         // 모든 스프라이트 비활성화
-        spriteRenderer.sprite = null; // 기본적으로 스프라이트를 비활성화
-
-        // 경험치에 따라 특정 스프라이트 활성화
-        switch ((int)exp)
+        foreach (GameObject sprite in expSprite)
         {
-            case 0:
-                // 아무것도 하지 않음
-                break;
-            case 10:
-                spriteRenderer.sprite = expSprite[0]; // 첫 번째 스프라이트 활성화
-                break;
-            case 20:
-                spriteRenderer.sprite = expSprite[1]; // 두 번째 스프라이트 활성화
-                break;
-            case 30:
-                spriteRenderer.sprite = expSprite[2]; // 세 번째 스프라이트 활성화
-                break;
-            case 40:
-                spriteRenderer.sprite = expSprite[3]; // 네 번째 스프라이트 활성화
-                break;
-            case 50:
-                spriteRenderer.sprite = expSprite[4]; // 다섯 번째 스프라이트 활성화
-                break;
-            case 60:
-                spriteRenderer.sprite = expSprite[5]; // 여섯 번째 스프라이트 활성화
-                break;
-            case 70:
-                spriteRenderer.sprite = expSprite[6]; // 일곱 번째 스프라이트 활성화
-                break;
-            case 80:
-                spriteRenderer.sprite = expSprite[7]; // 여덟 번째 스프라이트 활성화
-                break;
-            case 90:
-                spriteRenderer.sprite = expSprite[8]; // 아홉 번째 스프라이트 활성화
-                break;
-            case 100:
-                spriteRenderer.sprite = expSprite[9]; // 열 번째 스프라이트 활성화
-                break;
-            case 110:
-                spriteRenderer.sprite = expSprite[10]; // 열한 번째 스프라이트 활성화
-                break;
-            case 120:
-                spriteRenderer.sprite = expSprite[11]; // 열두 번째 스프라이트 활성화
-                break;
-            case 130:
-                spriteRenderer.sprite = expSprite[12]; // 열세 번째 스프라이트 활성화
-                break;
-            case 140:
-                spriteRenderer.sprite = expSprite[13]; // 열네 번째 스프라이트 활성화
-                break;
-            case 150:
-                spriteRenderer.sprite = expSprite[14]; // 열다섯 번째 스프라이트 활성화
-                break;
-            case 160:
-                spriteRenderer.sprite = expSprite[15]; // 열여섯 번째 스프라이트 활성화
-                break;
-            case 170:
-                spriteRenderer.sprite = expSprite[16]; // 열일곱 번째 스프라이트 활성화
-                break;
-            case 180:
-                spriteRenderer.sprite = expSprite[17]; // 열여덟 번째 스프라이트 활성화
-                break;
-            default:
-                // 180 이상의 경우에는 스프라이트를 설정하지 않음
-                break;
+            sprite.SetActive(false);
+        }
+
+        // 경험치에 따라 스프라이트 활성화 (10 단위로 증가)
+        int numSpritesToActivate = (int)exp / 10;
+
+        // 활성화할 스프라이트 개수만큼 반복
+        for (int i = 0; i < numSpritesToActivate && i < expSprite.Length; i++)
+        {
+            expSprite[i].SetActive(true);
         }
     }
+
 }

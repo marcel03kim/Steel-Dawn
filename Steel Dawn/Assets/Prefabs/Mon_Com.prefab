@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 0
   power: 2
+  expPrefab: {fileID: 8713528647895313533, guid: e74f1743be24e0f48b8b7c4daeae96eb, type: 3}
+  goldPrefab: {fileID: 7168909497067210344, guid: 0af699f1c8548f7498c795043b7df5a8, type: 3}
   currentState: 0
 --- !u!50 &7550319904915932541
 Rigidbody2D:

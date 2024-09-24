@@ -10,6 +10,9 @@ public class Computer : MonoBehaviour
 
     private float attackInterval = 3.0f; //공격속도 변수 선언
     private bool canAttack = true;  // 공격 가능한 상태인지 여부
+    public GameObject expPrefab;
+    public GameObject goldPrefab;
+    private bool isDropped = false;  // 드랍 상태 변수 추가
 
     Rigidbody2D rb;        //리지드바디 사용을 위한 변수 선언
     private Transform target;   //플레이어 위치를 가져오기 위한 변수 선언
@@ -137,6 +140,27 @@ public class Computer : MonoBehaviour
             yield return null;  // 다음 프레임까지 대기
         }
 
+        // 골드와 경험치 드랍 로직
+
+        if (!isDropped)
+        {
+            int dropItem = Random.Range(0, 2); // 0 또는 1을 반환
+            if (dropItem == 0)
+            {
+                GameObject exp = Instantiate(expPrefab, transform.position, transform.rotation);
+                isDropped = true;  // 드랍 완료 상태로 변경
+                exp.GetComponent<GetExp>().getExp = 10;
+            }
+            else if (dropItem == 1)
+            {
+                GameObject exp = Instantiate(expPrefab, transform.position, transform.rotation);
+                GameObject gold = Instantiate(goldPrefab, transform.position, transform.rotation);
+                isDropped = true;  // 드랍 완료 상태로 변경
+                exp.GetComponent<GetExp>().getExp = 10;
+                gold.GetComponent<GetGold>().getGold = 10;
+            }
+        }
+
         // 마지막으로 알파 값을 0으로 설정
         color.a = 0f;
         spriteRenderer.color = color;
@@ -144,4 +168,5 @@ public class Computer : MonoBehaviour
         // 최종적으로 오브젝트를 삭제
         Destroy(gameObject);
     }
+
 }

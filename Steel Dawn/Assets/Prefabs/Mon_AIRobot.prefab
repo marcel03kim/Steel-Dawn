@@ -136,6 +136,8 @@ MonoBehaviour:
   power: 2
   bulletPrefab: {fileID: 8885979292159719986, guid: 3dfc59aa078b22d499c91609adb1f615, type: 3}
   firePos: {fileID: 8985144422650748589}
+  expPrefab: {fileID: 8713528647895313533, guid: e74f1743be24e0f48b8b7c4daeae96eb, type: 3}
+  goldPrefab: {fileID: 7168909497067210344, guid: 0af699f1c8548f7498c795043b7df5a8, type: 3}
   currentState: 0
 --- !u!50 &6415173502549590053
 Rigidbody2D:
