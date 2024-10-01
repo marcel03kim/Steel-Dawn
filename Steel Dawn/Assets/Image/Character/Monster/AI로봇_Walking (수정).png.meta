@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ce44dbdc354bc44084e70caa4037aa5
+guid: 174a1e0434f4d5d43a3cb26abc25771f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,91 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: "AI\uB85C\uBD07_Walking_0"
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 40
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eee23c15a290a7045870190846f0cd13
-      internalID: -1526032623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "AI\uB85C\uBD07_Walking_1"
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 40
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e02327554efac1040bef2e6178c88b35
-      internalID: 681756501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "AI\uB85C\uBD07_Walking_2"
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 40
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56158f1b4ed659643b2dfd79b73a2996
-      internalID: -1303228815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "AI\uB85C\uBD07_Walking_3"
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 0
-        width: 40
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 090aeb722bad4734ea1681018b926f35
-      internalID: -59005060
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -203,11 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      "AI\uB85C\uBD07_Walking_0": -1526032623
-      "AI\uB85C\uBD07_Walking_1": 681756501
-      "AI\uB85C\uBD07_Walking_2": -1303228815
-      "AI\uB85C\uBD07_Walking_3": -59005060
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
