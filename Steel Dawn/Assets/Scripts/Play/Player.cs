@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Player : MonoBehaviour
 {
     public float Hp;
-    private float speed = 1.5f;
+    public float speed = 1.5f;
     public int level = 0;
     public float exp = 0;
     public float power;
     public float defense;
-    private bool isLevelUp = false;
 
+    public GameObject gameOver;
+    public Camera cam;
+
+    private bool isMove;
+    private bool isLevelUp = false;
+    private Animator anim;
     private LevelUpManager levelUpManager;
     public GameObject[] expSprite; // 경험치에 따른 스프라이트 배열
     private SpriteRenderer spriteRenderer; // 스프라이트 렌더러
@@ -21,7 +27,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        isMove = false;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // 스프라이트 렌더러 초기화
         levelUpManager = GetComponent<LevelUpManager>();
         UpdateExpSprites(); // 초기 스프라이트 설정
@@ -36,7 +44,42 @@ public class Player : MonoBehaviour
             isLevelUp = true;
             LevelUp();
         }
+
+        if(Hp <= 0)
+        {
+            StartCoroutine(DieCoroutine());
+        }
     }
+
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    void Move()
+    {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        float currentPosition = gameObject.transform.position.x;
+        if (currentPosition > gameObject.transform.position.x)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+
+        movement.Normalize();
+
+        rb.velocity = movement * speed;
+
+        anim.SetBool("move", true);
+        isMove = true;
+    }
+
 
     void LevelUp()
     {
@@ -44,16 +87,6 @@ public class Player : MonoBehaviour
         exp = 0;
         isLevelUp = false;
         levelUpManager.GetComponent<LevelUpManager>().PlayerLevelUp();
-    }
-
-    private void FixedUpdate()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        movement.Normalize();
-
-        rb.velocity = movement * speed;
     }
 
     // 경험치에 따라 스프라이트를 업데이트하는 메서드
@@ -73,6 +106,16 @@ public class Player : MonoBehaviour
         {
             expSprite[i].SetActive(true);
         }
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        Time.timeScale = 0;
+        anim.SetTrigger("die");
+
+        yield return new WaitForSeconds(3f);
+
+        gameOver.SetActive(true);  
     }
 
 }

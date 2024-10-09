@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MainScene : MonoBehaviour
 {
     public Light2D eyeLight;
+    //public Light2D LogoLight;
 
     private float Aduration = 2.0f; // 알파값 0인 상태 유지 시간
     private float Bduration = 0.2f; // 알파값 0에서 1로 변하는 시간
@@ -60,4 +61,22 @@ public class MainScene : MonoBehaviour
         Color finalColor = new Color(eyeLight.color.r, eyeLight.color.g, eyeLight.color.b, targetAlpha);
         eyeLight.color = finalColor;
     }
+
+    //private IEnumerator FadeToLOGO(float targetAlpha, float duration)
+    //{
+    //    float startAlpha = LogoLight.color.a;
+    //    float elapsedTime = 0f;
+
+    //    while (elapsedTime < duration)
+    //    {
+    //        elapsedTime += Time.deltaTime;
+    //        float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
+    //        Color newColor = new Color(LogoLight.color.r, LogoLight.color.g, LogoLight.color.b, newAlpha);
+    //        LogoLight.color = newColor;
+    //        yield return null;
+    //    }
+
+    //    Color finalColor = new Color(LogoLight.color.r, LogoLight.color.g, LogoLight.color.b, targetAlpha);
+    //    LogoLight.color = finalColor;
+    //}
 }

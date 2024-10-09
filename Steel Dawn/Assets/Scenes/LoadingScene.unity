@@ -678,15 +678,15 @@ RectTransform:
   m_GameObject: {fileID: 1261918666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.798878, y: 0.14037627, z: 1.2758}
+  m_LocalScale: {x: 0.4927146, y: 0.49214986, z: 1.1648098}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 845838851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -42.7}
-  m_SizeDelta: {x: 88, y: 35}
+  m_AnchoredPosition: {x: -2.4, y: -42.7}
+  m_SizeDelta: {x: 269, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1261918668
 MonoBehaviour:
@@ -708,12 +708,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5a88a5409524404fa8d6ba0ddf3f192, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b69c88932b12754e8aa3f5f68cb820d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.757
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -799,15 +799,15 @@ RectTransform:
   m_GameObject: {fileID: 1865027053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.798878, y: 0.14037627, z: 1.2758}
+  m_LocalScale: {x: 0.4927146, y: 0.49214986, z: 1.1648098}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 845838851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -42.7}
-  m_SizeDelta: {x: 88, y: 35}
+  m_AnchoredPosition: {x: -2.4000003, y: -42.7}
+  m_SizeDelta: {x: 275, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865027055
 MonoBehaviour:
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5a88a5409524404fa8d6ba0ddf3f192, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba7b38d3f61f61e45abaaf4d9a34aebe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
