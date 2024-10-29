@@ -6,11 +6,13 @@ using static UnityEngine.GraphicsBuffer;
 public class Player : MonoBehaviour
 {
     public float Hp;
-    public float speed = 1.5f;
-    public int level = 0;
-    public float exp = 0;
+    public float speed;
     public float power;
     public float defense;
+    public int level = 0;
+    public float exp = 0;
+
+    public GameObject playerStartSetting;
 
     public GameObject gameOver;
     public Camera cam;
@@ -33,6 +35,12 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>(); // 스프라이트 렌더러 초기화
         levelUpManager = GetComponent<LevelUpManager>();
         UpdateExpSprites(); // 초기 스프라이트 설정
+        gameOver.SetActive(false);
+
+        Hp = playerStartSetting.GetComponent<PlayerUpgrade>().StartHp;
+        speed = playerStartSetting.GetComponent<PlayerUpgrade>().StartSpeed;
+        power = playerStartSetting.GetComponent<PlayerUpgrade>().StartPower;
+        defense = playerStartSetting.GetComponent<PlayerUpgrade>().StartDefense;
     }
 
     private void Update()
@@ -118,4 +126,8 @@ public class Player : MonoBehaviour
         gameOver.SetActive(true);  
     }
 
+    public void GoMain()
+    {
+        Loading.LoadScene("MainScene");
+    }
 }

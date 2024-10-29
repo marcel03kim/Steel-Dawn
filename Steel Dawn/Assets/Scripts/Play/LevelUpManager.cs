@@ -11,6 +11,7 @@ public class LevelUpManager : MonoBehaviour
     public Text[] descText;       // 설명 텍스트 UI 배열
     public Image[] itemImage;     // 아이템 이미지 UI 배열
 
+    public Slot[] itemSlots;
     private ItemList itemList;
     private List<int> randomIndices; // 랜덤 인덱스를 저장할 리스트
 

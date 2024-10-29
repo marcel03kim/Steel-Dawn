@@ -1,27 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterManager : MonoBehaviour
 {
     public List<GameObject> monsterPrefabs;  // 몬스터 프리팹 리스트
+    public List<MonsterData> monsterDataPrefabs;  // 몬스터 데이터 프리팹 리스트
     public GameObject player;  // 플레이어 오브젝트
+    public GameObject GameClear;
+    public GameObject Stage;
+
+    private bool hasStageOpened;
     public float spawnInterval = 5f;  // 스폰 인터벌 (초 단위)
     private float spawnRadius = 20f;  // 플레이어 주변 반경
     private float spawnDistance = 30f;  // 몬스터 생성 위치(플레이어와의 거리)
     public float playTime;  // PlayTime 꼐산을 위한 변수
+    public Text playTimeText;  // PlayTime 꼐산을 위한 변수
 
     private void Start()
     {
         // 스폰 반복 시작
         StartCoroutine(SpawnMonsters());
+        GameClear.SetActive(false);
+        hasStageOpened = false;
+        Time.timeScale = 1;
     }
 
     private void Update()
     {
-        // PlayTime을 매 프레임 증가시키기 (게임 시간에 비례)
         playTime += Time.deltaTime;
+
+        int minutes = Mathf.FloorToInt(playTime / 60);
+        int seconds = Mathf.FloorToInt(playTime % 60);
+
+        playTimeText.text = $"{minutes:00}:{seconds:00}";
+
+        if (playTime > 300f && !hasStageOpened) // 이전에 스테이지가 열리지 않았다면
+        {
+            GameClear.SetActive(true);
+            Stage.GetComponent<StageData>().openStage += 1; // 또는 openStage++ 사용 가능
+            hasStageOpened = true; // 스테이지가 열린 상태로 변경
+        }
     }
+
+    public void SkipGame()
+    {
+        playTime = 299f;
+    }
+
 
     private IEnumerator SpawnMonsters()
     {
@@ -89,10 +116,10 @@ public class MonsterManager : MonoBehaviour
         Vector2 playerPosition = player.transform.position;
 
         // 최대 거리로 설정
-        float distance = Mathf.Min(spawnRadius, spawnDistance);  // 반경과 최대 거리 중 최소값 사용
+        float distance = Mathf.Min(spawnRadius, spawnDistance); 
 
         // 반경 내에서 랜덤 방향 생성
-        float angle = Random.Range(0f, Mathf.PI * 2);  // 360도 무작위 방향
+        float angle = Random.Range(0f, Mathf.PI * 2); 
 
         // 랜덤 위치 계산 (Polar to Cartesian 변환)
         Vector2 spawnPosition = new Vector2(

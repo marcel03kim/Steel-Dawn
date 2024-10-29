@@ -26,9 +26,12 @@ public class MainScene : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    private void Update()
     {
-        Loading.LoadScene("GameScene");
+        if(Input.anyKeyDown)
+        {
+            Loading.LoadScene("MainScene");
+        }
     }
 
     private IEnumerator Fade()
