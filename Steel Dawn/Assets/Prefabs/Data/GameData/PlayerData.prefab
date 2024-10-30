@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartHp: 50
-  StartSpeed: 1.5
+  StartSpeed: 2
   StartPower: 10
   StartDefense: 10

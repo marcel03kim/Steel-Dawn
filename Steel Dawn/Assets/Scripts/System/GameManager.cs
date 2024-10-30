@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
     {
         switch(sceneName)
         {
-            case "shop": Loading.LoadScene("ShopScene");
-                break;
             case "set": SettingCanvas.SetActive(true);
                 break;
             case "x": SettingCanvas.SetActive(false);

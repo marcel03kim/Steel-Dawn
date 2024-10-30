@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
-                player.Hp -= power; // 플레이어 체력 감소
+                player.currentHp -= power; // 플레이어 체력 감소
             }
 
             // 총알이 충돌한 후 파괴

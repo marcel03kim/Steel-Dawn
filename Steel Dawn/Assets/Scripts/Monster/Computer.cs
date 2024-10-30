@@ -31,7 +31,7 @@ public class Computer : MonsterVehicle
                 // attackInterval마다 플레이어에게 피해를 입힘
                 if (attackTimer >= monsterData.attackInterval)
                 {
-                    player.Hp -= power; // 플레이어의 체력을 power만큼 감소
+                    player.currentHp -= power; // 플레이어의 체력을 power만큼 감소
                     attackTimer = 0f; // 타이머 초기화
                 }
             }

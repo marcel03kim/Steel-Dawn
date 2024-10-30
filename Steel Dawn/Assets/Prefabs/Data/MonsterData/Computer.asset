@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: 0
   hp: 10
-  speed: 3
+  speed: 1
   power: 3
   attackInterval: 3
   expPrefab: {fileID: 8713528647895313533, guid: e74f1743be24e0f48b8b7c4daeae96eb, type: 3}

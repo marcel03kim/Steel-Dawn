@@ -29,6 +29,9 @@ public class StageManager : MonoBehaviour
             case "esc":
                 Dic.SetActive(false);
                 break;
+            case "shop":
+                Loading.LoadScene("ShopScene");
+                break;
         }
     }
 
