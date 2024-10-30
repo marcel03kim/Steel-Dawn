@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openStage: 0
+  currentPlayStage: -1
+  isTutorialClear: 0

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: ccc330cbca58c1c4e9ec7800be967e54, type: 2}
+  stage: {fileID: 702936032399346839, guid: 6f52501f9761a7a4383a6748ca8edc41, type: 3}
 --- !u!50 &7550319904915932541
 Rigidbody2D:
   serializedVersion: 4

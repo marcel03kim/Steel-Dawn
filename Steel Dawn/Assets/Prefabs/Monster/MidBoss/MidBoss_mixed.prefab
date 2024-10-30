@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5358220488838011817}
   - component: {fileID: 6469297033339781511}
-  - component: {fileID: 8610006013590781464}
   - component: {fileID: 7568947771549968126}
   - component: {fileID: 856063013478533316}
+  - component: {fileID: 7230435368130464577}
   - component: {fileID: 6116738989446731335}
   m_Layer: 0
   m_Name: MidBoss_mixed
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -224.85, y: 1.9346266, z: 0}
-  m_LocalScale: {x: 2.3081, y: 2.3081, z: 2.3081}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,30 +77,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -687256405, guid: 95fa863b4910fe64f9fb51605deab96b, type: 3}
+  m_Sprite: {fileID: 318588451, guid: c81ff25bfbac4804490b152c4d066e13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.64, y: 3.6044724}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8610006013590781464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4659839746602937698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 893dde3f8da9490448e555cbcfae1574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterData: {fileID: 11400000, guid: efde1a1431f9d0f4eb2bb39433b27ed0, type: 2}
 --- !u!58 &7568947771549968126
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +120,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.048428692, y: -0.11299663}
+  m_Offset: {x: -0.048428692, y: 0.2}
   serializedVersion: 2
   m_Radius: 1.2885747
 --- !u!50 &856063013478533316
@@ -163,6 +150,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7230435368130464577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659839746602937698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3e753f5908a3e4c9f75619839a0d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterData: {fileID: 11400000, guid: efde1a1431f9d0f4eb2bb39433b27ed0, type: 2}
 --- !u!95 &6116738989446731335
 Animator:
   serializedVersion: 5

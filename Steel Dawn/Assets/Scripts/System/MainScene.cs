@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class MainScene : MonoBehaviour
 {
+    public GameObject stage;
     public Light2D eyeLight;
-    //public Light2D LogoLight;
 
     private float Aduration = 2.0f; // 알파값 0인 상태 유지 시간
     private float Bduration = 0.2f; // 알파값 0에서 1로 변하는 시간
@@ -30,7 +30,15 @@ public class MainScene : MonoBehaviour
     {
         if(Input.anyKeyDown)
         {
-            Loading.LoadScene("MainScene");
+            if(stage.GetComponent<StageData>().isTutorialClear == false)
+            {
+                stage.GetComponent<StageData>().currentPlayStage = -1;
+                Loading.LoadScene("StoryScene");
+            }
+            if (stage.GetComponent<StageData>().isTutorialClear == true)
+            {
+                Loading.LoadScene("MainScene");
+            }
         }
     }
 

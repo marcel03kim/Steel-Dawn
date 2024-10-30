@@ -18,16 +18,17 @@ public class Player : MonoBehaviour
     public GameObject playerStartSetting;
 
     public GameObject gameOver;
+    public GameObject stage;
     public Camera cam;
 
-    private bool isLevelUp = false;
+    public bool isLevelUp = false;
     private Animator anim;
     private LevelUpManager levelUpManager;
     public GameObject[] expSprite; // 경험치에 따른 스프라이트 배열
     private SpriteRenderer spriteRenderer; // 스프라이트 렌더러
 
     Vector2 movement = new Vector2();
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     private void Start()
     {
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
         power = playerStartSetting.GetComponent<PlayerUpgrade>().StartPower;
         defense = playerStartSetting.GetComponent<PlayerUpgrade>().StartDefense;
         currentHp = Hp;
+        exp = 0;
     }
 
     private void Update()
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour
             healthBar.fillAmount = currentHp / Hp;
         }
     }
+
     private void FixedUpdate()
     {
         Move();
@@ -111,9 +114,19 @@ public class Player : MonoBehaviour
     void LevelUp()
     {
         level += 1;
-        exp = 0;
+        exp -= 190;
         isLevelUp = false;
-        levelUpManager.GetComponent<LevelUpManager>().PlayerLevelUp();
+        if(stage.GetComponent<StageData>() != null)
+        {
+            if(stage.GetComponent<StageData>().currentPlayStage == -1)
+            {
+                isLevelUp = true;
+            }
+            else
+            {
+                levelUpManager.GetComponent<LevelUpManager>().PlayerLevelUp();
+            }
+        }
     }
 
     // 경험치에 따라 스프라이트를 업데이트하는 메서드

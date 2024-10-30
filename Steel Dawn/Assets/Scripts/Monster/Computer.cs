@@ -3,6 +3,7 @@ using UnityEngine;
 public class Computer : MonsterVehicle
 {
     private float attackTimer; // 공격 타이머 변수
+    public GameObject stage;
 
     protected override void Start()
     {
@@ -18,6 +19,21 @@ public class Computer : MonsterVehicle
     protected override void Die()
     {
         base.Die(); // 부모 클래스의 Die 메서드 호출
+    }
+    
+   
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Player player = collision.GetComponent<Player>();  // Player 컴포넌트 가져오기
+            if (player != null)
+            {
+                player.currentHp -= power; // 플레이어의 체력을 power만큼 감소
+                attackTimer += Time.deltaTime; // 타이머 업데이트
+            }
+        }
     }
 
     protected virtual void OnTriggerStay2D(Collider2D collision)

@@ -10,6 +10,7 @@ public class MonsterManager : MonoBehaviour
     public GameObject player;  // 플레이어 오브젝트
     public GameObject GameClear;
     public GameObject Stage;
+    public int cp;
 
     private bool hasStageOpened;
     public float spawnInterval = 5f;  // 스폰 인터벌 (초 단위)
@@ -25,6 +26,27 @@ public class MonsterManager : MonoBehaviour
         GameClear.SetActive(false);
         hasStageOpened = false;
         Time.timeScale = 1;
+        cp = Stage.GetComponent<StageData>().currentPlayStage;
+
+        switch(cp)
+        {
+            case -1: spawnInterval = 100f;
+                break;
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:             
+                spawnInterval = 10f;
+                break;
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                spawnInterval = 8f;
+                break;
+        }
     }
 
     private void Update()
@@ -50,7 +72,7 @@ public class MonsterManager : MonoBehaviour
     }
 
 
-    private IEnumerator SpawnMonsters()
+    public IEnumerator SpawnMonsters()
     {
         while (true)
         {

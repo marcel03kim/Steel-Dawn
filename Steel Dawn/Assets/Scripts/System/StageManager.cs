@@ -40,6 +40,7 @@ public class StageManager : MonoBehaviour
         if (stageNumber <= currentStage)
         {
             Loading.LoadScene("GameScene");
+            stageData.GetComponent<StageData>().currentPlayStage = stageNumber;
         }
         if (stageNumber > currentStage)
         {
