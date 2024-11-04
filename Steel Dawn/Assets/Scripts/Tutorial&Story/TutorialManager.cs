@@ -241,7 +241,7 @@ public class TutorialManager : MonoBehaviour
     private void CheckPlayerMovement()
     {
         
-        if (playerScript.rb.velocity.magnitude > 0 && !isMoving)
+        if (playerScript.rb.velocity.magnitude > 0 && !isMoving && currentTextIndex == 2)
         {
             ButtonClick();
             isMoving = true;

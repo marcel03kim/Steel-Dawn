@@ -28,7 +28,8 @@ public class typingEffect : MonoBehaviour
             new StoryTextData(10, "내 딸이 사라졌다."),
             new StoryTextData(11, "영문도 모른 채 잡혀 간 내 딸을 찾다보니 도착한 곳은"),
             new StoryTextData(12, "가온, 내가 몸 담았던 그 기업이었다."),
-            new StoryTextData(13, "정신을 차려보니 나는 회사 옥상에 올라와있었다.")
+            new StoryTextData(13, "몰아치는 적들을 쫓아 가던 중 정신을 차려보니"),
+            new StoryTextData(14, "나는 회사 옥상에 올라와있었다.")
         };
     }
 
@@ -87,6 +88,7 @@ public class typingEffect : MonoBehaviour
                 storyImages[9].gameObject.SetActive(true);
                 break;
             case 14:
+            case 15:
                 storyImages[9].gameObject.SetActive(true);
                 break;
             default :
@@ -105,12 +107,12 @@ public class typingEffect : MonoBehaviour
             StopCoroutine(typingCoroutine);
         }
 
-        if (currentTextIndex <= 13)
+        if (currentTextIndex <= 14)
         {
             ++currentTextIndex;
             typingCoroutine = StartCoroutine(typing(currentTextIndex));
         }
-        if(currentTextIndex == 14)
+        if(currentTextIndex == 15)
         {
             Loading.LoadScene("TutorialScene");
         }
